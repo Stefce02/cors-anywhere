@@ -1,5 +1,5 @@
 // Listen on a specific host via the HOST environment variable
-var host = process.env.HOST || '127.0.0.1';
+var host = process.env.HOST || '0.0.0.0';
 // Listen on a specific port via the PORT environment variable
 var port = process.env.PORT || 8080;
 
@@ -8,7 +8,17 @@ var port = process.env.PORT || 8080;
 // immediate abuse (e.g. denial of service). If you want to block all origins except for some,
 // use originWhitelist instead.
 var originBlacklist = parseEnvList(process.env.CORSANYWHERE_BLACKLIST);
-var originWhitelist = parseEnvList(process.env.CORSANYWHERE_WHITELIST);
+var envWhitelist  = parseEnvList(process.env.CORSANYWHERE_WHITELIST);
+
+var customWhitelist = [
+  'https://myproxylocal.onrender.com',
+  'https://25.6.44.122', 
+  'http://localhost:5173',
+  'http://localhost'
+];
+
+originWhitelist = envWhitelist.concat(customWhitelist);
+
 function parseEnvList(env) {
   if (!env) {
     return [];

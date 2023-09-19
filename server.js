@@ -12,9 +12,13 @@ var envWhitelist  = parseEnvList(process.env.CORSANYWHERE_WHITELIST);
 
 var customWhitelist = [
   'https://myproxylocal.onrender.com',
+  'https://myproxylocal.onrender.com/',
   'https://25.6.44.122', 
-  'http://localhost:5173',
-  'http://localhost'
+  'https://25.6.44.122/', 
+  'https://localhost:5173',
+  'https://localhost:5173/',
+  'https://localhost',
+  'https://localhost/'
 ];
 
 originWhitelist = envWhitelist.concat(customWhitelist);

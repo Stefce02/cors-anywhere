@@ -17,6 +17,8 @@ var customWhitelist = [
   'https://25.6.44.122/', 
   'https://localhost:5173',
   'https://localhost:5173/',
+  'http://localhost:5173',
+  'http://localhost:5173/',
   'https://localhost',
   'https://localhost/'
 ];
